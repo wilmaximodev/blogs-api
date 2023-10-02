@@ -1,7 +1,7 @@
 const { User } = require('../models');
 const jwt = require('../auth/jwt');
 
-const createUser = async (displayName, email, password, image) => {
+const create = async (displayName, email, password, image) => {
   const user = await User.findOne({ where: { email } });
   if (user) return { status: 409, data: { message: 'User already registered' } };
 
@@ -33,7 +33,7 @@ const findByPk = async (id) => {
 };
 
 module.exports = {
-  createUser,
+  create,
   findAll,
   findByPk,
 };

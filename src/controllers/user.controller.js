@@ -1,8 +1,8 @@
 const { userService } = require('../services');
 
-const createUser = async (req, res) => {
+const create = async (req, res) => {
   const { displayName, email, password, image } = req.body;
-  const user = await userService.createUser(displayName, email, password, image);
+  const user = await userService.create(displayName, email, password, image);
   return res.status(user.status).json(user.data);
 };
 
@@ -18,7 +18,7 @@ const findByPk = async (req, res) => {
 };
 
 module.exports = {
-  createUser,
+  create,
   findAll,
   findByPk,
 };
