@@ -11,7 +11,14 @@ const findAll = async (req, res) => {
   return res.status(users.status).json(users.data);
 };
 
+const findByPk = async (req, res) => {
+  const { id } = req.params;
+  const user = await userService.findByPk(id);
+  return res.status(user.status).json(user.data);
+};
+
 module.exports = {
   createUser,
   findAll,
+  findByPk,
 };
