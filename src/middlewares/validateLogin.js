@@ -1,4 +1,4 @@
-const vaidateLogin = (req, res, next) => {
+const validateLogin = (req, res, next) => {
   const { email, password } = req.body;
   if (!email || !password) {
     return res.status(400).json({
@@ -8,4 +8,4 @@ const vaidateLogin = (req, res, next) => {
   next();
 };
   
-module.exports = vaidateLogin;
+module.exports = validateLogin;
