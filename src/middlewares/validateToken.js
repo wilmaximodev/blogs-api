@@ -9,7 +9,7 @@ const validateToken = (req, res, next) => {
   const token = authorization.split(' ')[1];
   try {
     const user = jwt.decodeJwtToken(token);
-    req.locals = user;
+    res.authorization = user;
     next();
   } catch (e) {
     return res.status(401).json({ message: 'Expired or invalid token' });
